@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: #333;
+  font-family: system-ui, sans-serif;
+}
+.switch label {
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 60px;
+  height: 30px;
+  border-radius: 99px;
+  background-color: #f9f9f9;
+  outline: 3px solid #e8e8e8;
+  transition: ease 0.25s;
+}
+.switch label::before {
+  position: relative;
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  transition: ease 0.25s;
+}
+.switch label::after {
+  content: "OFF";
+  font-size: 14px;
+  color: #ccc;
+  font-weight: 500;
+  /* transition: ease 0.25s; */
+}
+/* .switch [type="checkbox"]:checked ~ label::before {
+  transform: translateX(30px);
+} */
+
+.switch:has(:checked) label::before {
+  transform: translateX(31px);
+}
+.switch:has(:checked) label {
+  background-color: #41e64c;
+  outline-color: #41e64c;
+}
+.switch:has(:checked) label::after {
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  content: "ON";
+  font-size: 14px;
+  color: #eee;
+  font-weight: 500;
+  z-index: 1;
+}
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: -1;
+  transition: ease 0.25s;
+}
+.switch:has(:checked) + .background {
+  background-color: #000;
+}
